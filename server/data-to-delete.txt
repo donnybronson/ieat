@@ -1,0 +1,32 @@
+db.foods.insert({
+foodType: "RedMeat",
+foodGroup: "meat",
+si: "g",
+co2perkg: 130,
+h20perkg: 99,
+kJperkg: 99,
+livesperkg: 99,
+url: "99.com"
+});
+
+db.foods.insert({
+foodType: "Soy",
+foodGroup: "Pulses",
+si: "g",
+co2perkg: 0.3,
+h20perkg: 99,
+kJperkg: 99,
+livesperkg: 99,
+url: "99.com"
+});
+
+db.foods.insert({
+foodType: "cherries",
+foodGroup: "fruit",
+si: "g",
+co2perkg: 0,
+h20perkg: 99,
+kJperkg: 99,
+livesperkg: 0,
+url: "99.com"
+});
