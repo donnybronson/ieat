@@ -11,13 +11,17 @@ Template.redMeatC.helpers({
   meatCo2: function(){
     var tM = Session.get("totalMeat");
     var mC = tM * this.co2perkg;
+    // mC = mC.toFixed(2); TODO THIS LINE RECUCES THE DECIMAL PLACES TO 2 BUT STOPS THE RESULTS FROM ADDING UP, THEY CONCATINATE INSTEAD
     //
-    //var curC =Session.get("currCo2");
-    // curC = Number(curC);
-    // mC  = Number(mC);
-    //curC += mC;
-    // Session.set("currCo2",  curC);
-     Session.set("currCo2",  Session.get("currCo2")+mC);
+    if( tM > 0){
+      console.log("global Co2 = "+ Co2);
+      Diet.update(this.foodType, mC);
+      Co2 += mC;
+      Session.set("currCo2",Co2);
+      console.log("updated global Co2 = "+ Co2);
+    //  console.log("Number(tM) > 0");
+      // Session.set("currCo2",  Session.get("currCo2") + mC);
+    };
     //console.log("in meatco2() currCo2= " + Session.set("currCo2",  Session.get("currCo2")+mC));
     return mC;
 
@@ -57,7 +61,12 @@ Template.soyC.helpers({
      var sC = tS * this.co2perkg;
      //
   //   if(Session.get("curCo2")!== undefined){
-    Session.set("currCo2",  Session.get("currCo2")+sC);
+  if( tS > 0){
+    Co2 += sC;
+    Session.set("currCo2", Co2);
+    // Session.set("currCo2",  Session.get("currCo2") + sC);
+  };
+    // Session.set("currCo2",  Session.get("currCo2")+sC);
        //var curC =Session.get("curCo2");
        //curC =Number(curC);
        //curC += sC;
@@ -92,8 +101,14 @@ Template.cherriesC.helpers({
   cherriesCo2: function(){
     var tC = Session.get("totalCherries");
      var cC = tC * this.co2perkg;
+    //  cC= cC.toFixed(2);
      //
-     Session.set("currCo2",  Session.get("currCo2")+cC);
+     if( tC > 0){
+       Co2 += cC;
+       Session.set("currCo2",Co2);
+      //  Session.set("currCo2",  Session.get("currCo2") + cC);
+     };
+    //  Session.set("currCo2",  Session.get("currCo2")+cC);
        //if(Session.get("curCo2")!== undefined){
        //var curC =Session.get("currCo2");
        //curC = Number(curC);

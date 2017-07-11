@@ -26,6 +26,25 @@ Template.foodItem.helpers({
     if(this.foodType ==="cherries"){
       return true;
     }
+  },
+  foodCheck: function(){
+    var rM = Session.get("redMeatConsumed");
+    var sY = Session.get("soyConsumed");
+    var cC = Session.get("cherriesConsumed");
+    if (this.foodType === "RedMeat"){
+      if(rM > 0){
+        return {redMeatC};
+      };
+    }else if(this.foodType === "Soy"){
+      if(sY > 0){
+        return {soyC};
+      };
+    }else if (thsi.foodType === "cherries") {
+      if(cC > 0){
+        return {cherriesC};
+      };
+    }
+
   }
 });
 
