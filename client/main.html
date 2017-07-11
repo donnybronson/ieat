@@ -1,9 +1,22 @@
 <head>
   <title>ieat</title>
+
 </head>
 
 <body>
-<p>Hi</p>
-{{ > foodList}}
-{{> resultList}}
+{{> headerV}}
+<div class="container">
+    <header class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Simple Food Calibrator</a>
+        {{> pageHead}}
+      </div>
+    </header>
+    <div id="main">
+      {{> foodList}}
+      {{> resultList}}
+    </div>
+
+  </div>
+
 </body>

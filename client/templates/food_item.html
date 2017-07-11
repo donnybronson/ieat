@@ -8,11 +8,9 @@
          <input name="thisFood" id="{{foodType}}" type="text" value="" placeholder="You eat" class="form-control"/>
          <input type="submit" value="Submit" class="btn btn-primary"/>
     </form>
-    <!-- {{entryForm}} -->
-    {{#if thisisRedmeat }}
-    <!-- TODO set the data context  -->
 
-      <!-- {{> redMeatC meat=youEatRedMeat co2=this.co2perkg}} -->
+    {{#if thisisRedmeat }}
+
       {{> redMeatC this}}
 
     {{else if thisisSoy }}
@@ -22,6 +20,7 @@
     {{else if thisisCherries }}
 
       {{> cherriesC this}}
+
     {{/if}}
   </div>
   </div>

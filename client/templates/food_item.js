@@ -9,18 +9,6 @@ Template.foodItem.helpers({
 
 });
 Template.foodItem.helpers({
-  // youEatRedMeat: function(){
-  //   var rm = Session.get('redMeatConsumed');
-  //   //if(rm !== undefined ){
-  //   return  rm;
-  // //}
-  // },
-  // youEatSoy: function(){
-  //   return Session.get('soyConsumed')
-  // },
-  // youEatCherries: function(){
-  //   return Session.get('cherriesConsumed')
-  // },
   currentFood: function(){
     return Session.get("currentFood")
   },
@@ -40,6 +28,10 @@ Template.foodItem.helpers({
     }
   }
 });
+
+//   //  //  //  THIS IS THE EVENT //  //  //
+ //  //  //
+
 Template.foodItem.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -47,18 +39,27 @@ Template.foodItem.events({
     //if ()
     var tf = this.foodType;
     var iEat = event.target.thisFood.value;
-  //var thisEl = event.target.name;
-//  console.log("this is : " + thisEl);
    console.log("foodType obj= " + tf);
    console.log("i eat = " + iEat);
+   //
+   if(Session.get("currCo2") === undefined ){
+     console.log("currCo2= undefined");
+     Session.set("currCo2", 0);
+   };
+   //
    Session.set(tf,iEat);
    Session.set("curentFood", tf);
+   //
    if(tf === "RedMeat"){
      Session.set("redMeatConsumed",iEat);
+     console.log("meat snack= " + iEat);
    }else if (tf === "Soy") {
      Session.set("soyConsumed", iEat);
+     console.log("soya snack= " + iEat);
    }else if (tf === "cherries") {
      Session.set("cherriesConsumed", iEat);
+     console.log("fruit snack = " + iEat);
+     //
    }
 
   }

@@ -14,8 +14,11 @@ body {
 #main {
   position: relative;
 }
+#rMain {
+  position: relative;
+}
 .page {
-  position: absolute;
+  /*position: absolute;*/
   top: 0px;
   width: 100%;
 }
@@ -157,4 +160,15 @@ body {
   clear: both;
   margin-bottom: 5px;
   pointer-events: auto;
+}
+
+/*Donny's doing*/
+.desc{
+
+  padding: 15px;
+}
+#resultsBlock{
+
+  padding: 20px;
+
 }
