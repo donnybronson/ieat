@@ -1,4 +1,30 @@
 Template.calibration.helpers({
+  youEat: function(){
+    var cF = this.foodType;
+    var curF = Diet.findOne({ft: cF});
+    var guardedCurV = curF && curF.cv;
+    return guardedCurV;
+  },
+  totFood: function(){
+    var cF = this.foodType;
+    var curF = Diet.findOne({ft: cF});
+    var guardedCurV = curF && curF.cv;
+    var guarded_id = curF && curF._id;
+    var totF = guardedCurV  / 1000 * 52 ;//divided by 1000 to change it to kg, * 52 to make it annual
+
+    Diet.upsert( guarded_id  , {$set: {tv: guardedCurV}});
+    return totF;
+  },
+  foodCo2: function(){
+    var thisC = this.co2perkg;
+    var cF = this.foodType;
+    var curF = Diet.findOne({ft: cF});
+    var guardedCurV = curF && curF.cv;
+    var guarded_id = curF && curF._id;
+    var totFoodCo2 = guardedCurV /1000 * thisC;
+    Diet.upsert( guarded_id  , {$set: {tCo2: totFoodCo2}});
+    return totFoodCo2;
+  }
 });
 
 Template.redMeatC.helpers({
@@ -57,7 +83,9 @@ Template.soyC.helpers({
     return totS;
   },
   soyCo2: function(){
-    var tS = Session.get("totalSoy");
+    // var tS = Session.get("totalSoy");
+    //  var sC = tS * this.co2perkg;
+    var tS = Diet.findOne();
      var sC = tS * this.co2perkg;
      //
   //   if(Session.get("curCo2")!== undefined){

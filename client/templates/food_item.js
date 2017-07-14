@@ -61,25 +61,34 @@ Template.foodItem.events({
    console.log("foodType obj= " + tf);
    console.log("i eat = " + iEat);
    //
-   if(Session.get("currCo2") === undefined ){
+   if(Session.get("currCo2") === undefined ){//TODO DITCH THIS CODE
      console.log("currCo2= undefined");
      Session.set("currCo2", 0);
    };
    //
-   Session.set(tf,iEat);
-   Session.set("curentFood", tf);
+   Session.set(tf,iEat);//TODO DITCH THIS CODE
+   Session.set("curentFood", tf);//TODO DITCH THIS CODE
    //
-   if(tf === "RedMeat"){
-     Session.set("redMeatConsumed",iEat);
-     console.log("meat snack= " + iEat);
-   }else if (tf === "Soy") {
-     Session.set("soyConsumed", iEat);
-     console.log("soya snack= " + iEat);
-   }else if (tf === "cherries") {
-     Session.set("cherriesConsumed", iEat);
-     console.log("fruit snack = " + iEat);
-     //
-   }
+   var foodUpdate = Diet.findOne({ft: tf});
+   Diet.update( foodUpdate._id , {$set: {cv: iEat}});
+
+  //  if(tf === "RedMeat"){
+  //    Session.set("redMeatConsumed",iEat);
+  //    console.log("meat snack= " + iEat);
+  //    var box = Diet.findOne({ft: 'RedMeat'});
+  //    console.log("box: " + box.cv);
+  //   // box.update({cv: iEat});
+  //  }else if (tf === "Soy") {
+  //    Session.set("soyConsumed", iEat);
+  //    console.log("soya snack= " + iEat);
+  //  }else if (tf === "cherries") {
+  //    Session.set("cherriesConsumed", iEat);
+  //    console.log("fruit snack = " + iEat);
+  //    //
+  //  }
+
+
+
 
   }
 });
