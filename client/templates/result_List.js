@@ -38,17 +38,26 @@ Template.resultList.helpers({
   },
   unit:function(){
 
+re
   },
   co2ToDate: function(){
 
   },
   addDiet: function(){
     //console.log("adddiet reads: "+ Diet.findOne());
-    var readOut = Diet.findOne({ft: 'RedMeat'});
+  //  var readOut = Diet.findOne({ft: 'RedMeat'});
     // console.log("readOut: " + readOut.cv);
 
-    var curV = readOut && readOut.cv;// this is guarding. i think the collection is not opdated when this code first runs so we would otherwise throw an error
-    console.log("readOut &&: " + curV);
+    // var curV = readOut && readOut.cv;// this is guarding. i think the collection is not opdated when this code first runs so we would otherwise throw an error
+    // console.log("readOut &&: " + curV);
+    var hats ="5";
+    var coats = 5;
+    // if(check(hats, Number)){
+    //   Console.log("hats");
+    // }
+    // if(check(coats, Number)){
+    //   Console.log("coats");
+    // }
     return  curV;
 
   }

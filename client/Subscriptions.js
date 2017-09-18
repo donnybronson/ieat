@@ -1,1 +1,1 @@
-Meteor.subscribe('foods');
+// Meteor.subscribe('foods');
